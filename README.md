@@ -10,7 +10,7 @@ Run BrickQuotes on your localhost by typing
 mvn clean generate-resources license:add-third-party package tomcat7:run
 ```
 
-You can modify BrickQuotes's listening port in the `pom.xml`
+You can modify BrickQuotes' listening port in the `pom.xml`
 ```
 <build>
 	...
@@ -32,7 +32,7 @@ You can modify BrickQuotes's listening port in the `pom.xml`
 ```
 
 ## Usage
-Get BrickQuotes up and running. HTTP GET requests can be made against BrcikQuotes's form-style GET API as follows
+Get BrickQuotes up and running. HTTP GET requests can be made against BrcikQuotes' form-style GET API as follows
 ```
 GET brick/{id} HTTP/1.1
 Server: http:localhost:8080
