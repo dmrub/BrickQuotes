@@ -47,7 +47,7 @@ Server: http:localhost:8080
 Accept: text/turtle
 ```
 will give you a quotation for a [horizontal 1x1 brick with holder](https://sh-s7-live-s.legocdn.com/is/image/LEGOPCS/4533763_s1?$PABspin$)
-```
+```rdf
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
