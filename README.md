@@ -11,7 +11,7 @@ mvn clean generate-resources license:add-third-party package tomcat7:run
 ```
 
 You can modify BrickQuotes' listening port in the `pom.xml`
-```
+```xml
 <build>
 	...
 	<plugins>
