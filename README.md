@@ -1,6 +1,8 @@
 # BrickQuotes
-BrickQuotes is a simple Linked Data API and allows to request quotations for Lego® bricks.
-BrickQuotes is the [GoodRelations](http://www.heppnetz.de/projects/goodrelations/) Web vocabulary for e-commerce.
+BrickQuotes is a simple Linked Data API and allows to request quotations for Lego® bricks from the [bricklink](http://www.bricklink.com) online marketplace.
+BrickQuotes is compliant with the [GoodRelations](http://www.heppnetz.de/projects/goodrelations/) Web vocabulary for e-commerce.
+
+For the future, we plan to extend BrickQuotes to request quotations from more marketplaces.
 
 ## Installation & Running
 Run BrickQuotes on your localhost by typing
