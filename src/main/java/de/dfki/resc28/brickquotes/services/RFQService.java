@@ -174,8 +174,10 @@ public class RFQService
 		InputStream is = dataURL.openStream(); 
 		JsonReader rdr = Json.createReader(is);
 		JsonObject obj = rdr.readObject();
-		JsonArray items = obj.getJsonObject("result").getJsonArray("typeList").getJsonObject(0).getJsonArray("items");
-		return items;
+		if (obj.getJsonObject("result").getJsonArray("typeList").isEmpty())
+			throw new WebApplicationException("No quotation available.", Status.NOT_FOUND);
+		else
+			return obj.getJsonObject("result").getJsonArray("typeList").getJsonObject(0).getJsonArray("items");
 	}
 
 	@Context protected UriInfo fRequestUrl;
