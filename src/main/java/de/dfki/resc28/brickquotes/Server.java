@@ -24,36 +24,30 @@ import de.dfki.resc28.brickquotes.services.RFQService;
  *
  */
 @ApplicationPath("/")
-public class Server extends Application 
-{
-	public static String fBaseURI;
+public class Server extends Application {
 
-	public Server(@Context ServletContext servletContext) throws URISyntaxException, IOException
-	{
-		configure();
-	}
+    public static String fBaseURI;
 
-	@Override
-    public Set<Object> getSingletons() 
-    {	
-		RFQService bla = new RFQService();
-		return new HashSet<Object>(Arrays.asList(bla));
+    public Server(@Context ServletContext servletContext) throws URISyntaxException, IOException {
+        configure();
     }
 
-	public static synchronized void configure() 
-    {
-        try 
-        {
+    @Override
+    public Set<Object> getSingletons() {
+        RFQService bla = new RFQService();
+        WebAppExceptionMapper m = new WebAppExceptionMapper();
+        return new HashSet<Object>(Arrays.asList(bla, m));
+    }
+
+    public static synchronized void configure() {
+        try {
             String configFile = System.getProperty("brickquotes.configuration");
             java.io.InputStream is;
 
-            if (configFile != null) 
-            {
+            if (configFile != null) {
                 is = new java.io.FileInputStream(configFile);
                 System.out.format("Loading BrickQuotes configuration from %s ...%n", configFile);
-            } 
-            else 
-            {
+            } else {
                 is = Server.class.getClassLoader().getResourceAsStream("brickquotes.properties");
                 System.out.println("Loading BrickQuotes configuration from internal resource file ...");
             }
@@ -62,18 +56,14 @@ public class Server extends Application
             p.load(is);
 
             Server.fBaseURI = getProperty(p, "baseURI", "brickquotes.baseURI");
-        } 
-        catch (Exception e) 
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static String getProperty(java.util.Properties p, String key, String sysKey) 
-    {
+    public static String getProperty(java.util.Properties p, String key, String sysKey) {
         String value = System.getProperty(sysKey);
-        if (value != null) 
-        {
+        if (value != null) {
             return value;
         }
         return p.getProperty(key);
