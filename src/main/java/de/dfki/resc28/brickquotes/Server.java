@@ -36,7 +36,8 @@ public class Server extends Application {
     public Set<Object> getSingletons() {
         RFQService bla = new RFQService();
         WebAppExceptionMapper m = new WebAppExceptionMapper();
-        return new HashSet<Object>(Arrays.asList(bla, m));
+        ForwardedHeaderFilter f = new ForwardedHeaderFilter();
+        return new HashSet<Object>(Arrays.asList(f, bla, m));
     }
 
     public static synchronized void configure() {
